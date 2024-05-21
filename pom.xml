@@ -8,7 +8,7 @@
 		<version>2.5.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.springboot.Order</groupId>
+	<groupId>com.springboot.order</groupId>
 	<artifactId>OrderCrud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>OrderCrud</name>

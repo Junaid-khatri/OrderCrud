@@ -21,12 +21,10 @@ public class OrderController {
     private static Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     private final OrderService orderService;
-    private OrderResponse response;
 
     @Autowired
-    public OrderController(OrderService orderService, OrderResponse response){
+    public OrderController(OrderService orderService){
         this.orderService = orderService;
-        this.response = response;
     }
 
     @PostMapping (value = "/createOrder", consumes  = "application/json", produces ="application/text")
@@ -53,8 +51,7 @@ public class OrderController {
     }
     @GetMapping(value = "/viewOrder")
     public OrderResponse viewOrder(@RequestParam int id){
-        response = orderService.viewOrder(id);
-        return response;
+        return orderService.viewOrder(id);
     }
     @GetMapping(value = "/viewOrders")
     public List<Order> viewAllOrder(){
