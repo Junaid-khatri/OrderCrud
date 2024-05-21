@@ -15,7 +15,7 @@ public class SwaggerConfiguration {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("com.springboot.Order.order_crud.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.springboot.order.order_crud.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
