@@ -15,7 +15,10 @@
 	<description>Perform Crud Operation with Order entity</description>
 	<properties>
 		<java.version>11</java.version>
+		<sonar.organization>junaid-khatri</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -32,11 +35,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>com.oracle.database.jdbc</groupId>-->
-<!--			<artifactId>ojdbc11</artifactId>-->
-<!--			<scope>runtime</scope>-->
-<!--		</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -81,10 +80,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.1</version>
 		</dependency>
-
-
-
-
 
 
 
