@@ -1,12 +1,11 @@
-package com.springboot.Order.OrderCrud.Service;
+package com.spring_boot.order.order_crud.service;
 
-import com.springboot.Order.OrderCrud.Entity.Order;
-import com.springboot.Order.OrderCrud.Model.ExpectedDateModel;
-import com.springboot.Order.OrderCrud.Model.OrderModel;
-import com.springboot.Order.OrderCrud.Model.OrderStatusModel;
-import com.springboot.Order.OrderCrud.Response.OrderResponse;
+import com.spring_boot.order.order_crud.entity.Order;
+import com.spring_boot.order.order_crud.model.ExpectedDateModel;
+import com.spring_boot.order.order_crud.model.OrderModel;
+import com.spring_boot.order.order_crud.model.OrderStatusModel;
+import com.spring_boot.order.order_crud.response.OrderResponse;
 
-import java.util.Date;
 import java.util.List;
 
 public interface OrderService {

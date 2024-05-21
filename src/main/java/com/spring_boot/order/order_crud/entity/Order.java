@@ -1,12 +1,15 @@
-package com.springboot.Order.OrderCrud.Response;
+package com.spring_boot.order.order_crud.entity;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.*;
 
 import java.util.Date;
 
-@Component
-public class OrderResponse {
+@Entity
+@Table(name = "orderDetail")
+public class Order {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private Date orderDate;
     private String place;
@@ -16,11 +19,10 @@ public class OrderResponse {
     private String shipmentBy;
     private String orderStatus;
 
-    public OrderResponse() {
+    public Order() {
     }
 
-    public OrderResponse(int id, Date orderDate, String place, Date expectedDelivery, int totalAmount, String modeOfPayment, String shipmentBy, String orderStatus) {
-        this.id = id;
+    public Order(Date orderDate, String place, Date expectedDelivery, int totalAmount, String modeOfPayment, String shipmentBy, String orderStatus) {
         this.orderDate = orderDate;
         this.place = place;
         this.expectedDelivery = expectedDelivery;
@@ -34,60 +36,60 @@ public class OrderResponse {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Date getOrderDate() {
         return orderDate;
-    }
-
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
     }
 
     public String getPlace() {
         return place;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
     public Date getExpectedDelivery() {
         return expectedDelivery;
-    }
-
-    public void setExpectedDelivery(Date expectedDelivery) {
-        this.expectedDelivery = expectedDelivery;
     }
 
     public int getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(int totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
     public String getModeOfPayment() {
         return modeOfPayment;
-    }
-
-    public void setModeOfPayment(String modeOfPayment) {
-        this.modeOfPayment = modeOfPayment;
     }
 
     public String getShipmentBy() {
         return shipmentBy;
     }
 
-    public void setShipmentBy(String shipmentBy) {
-        this.shipmentBy = shipmentBy;
-    }
-
     public String getOrderStatus() {
         return orderStatus;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public void setExpectedDelivery(Date expectedDelivery) {
+        this.expectedDelivery = expectedDelivery;
+    }
+
+    public void setTotalAmount(int totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public void setModeOfPayment(String modeOfPayment) {
+        this.modeOfPayment = modeOfPayment;
+    }
+
+    public void setShipmentBy(String shipmentBy) {
+        this.shipmentBy = shipmentBy;
     }
 
     public void setOrderStatus(String orderStatus) {
@@ -96,7 +98,7 @@ public class OrderResponse {
 
     @Override
     public String toString() {
-        return "OrderResponse{" +
+        return "Order{" +
                 "id=" + id +
                 ", orderDate=" + orderDate +
                 ", place='" + place + '\'' +

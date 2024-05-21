@@ -1,4 +1,4 @@
-package com.springboot.Order.OrderCrud.Model;
+package com.spring_boot.order.order_crud.model;
 
 import javax.validation.constraints.*;
 

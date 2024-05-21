@@ -1,15 +1,13 @@
-package com.springboot.Order.OrderCrud.Entity;
+package com.spring_boot.order.order_crud.response;
 
-import javax.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Entity
-@Table(name = "orderDetail")
-public class Order {
+@Component
+public class OrderResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private Date orderDate;
     private String place;
@@ -19,10 +17,11 @@ public class Order {
     private String shipmentBy;
     private String orderStatus;
 
-    public Order() {
+    public OrderResponse() {
     }
 
-    public Order(Date orderDate, String place, Date expectedDelivery, int totalAmount, String modeOfPayment, String shipmentBy, String orderStatus) {
+    @Autowired
+    public OrderResponse(int id, Date orderDate, String place, Date expectedDelivery, int totalAmount, String modeOfPayment, String shipmentBy, String orderStatus) {
         this.id = id;
         this.orderDate = orderDate;
         this.place = place;
@@ -37,60 +36,60 @@ public class Order {
         return id;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public String getPlace() {
-        return place;
-    }
-
-    public Date getExpectedDelivery() {
-        return expectedDelivery;
-    }
-
-    public int getTotalAmount() {
-        return totalAmount;
-    }
-
-    public String getModeOfPayment() {
-        return modeOfPayment;
-    }
-
-    public String getShipmentBy() {
-        return shipmentBy;
-    }
-
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
     }
 
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 
+    public String getPlace() {
+        return place;
+    }
+
     public void setPlace(String place) {
         this.place = place;
+    }
+
+    public Date getExpectedDelivery() {
+        return expectedDelivery;
     }
 
     public void setExpectedDelivery(Date expectedDelivery) {
         this.expectedDelivery = expectedDelivery;
     }
 
+    public int getTotalAmount() {
+        return totalAmount;
+    }
+
     public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public String getModeOfPayment() {
+        return modeOfPayment;
     }
 
     public void setModeOfPayment(String modeOfPayment) {
         this.modeOfPayment = modeOfPayment;
     }
 
+    public String getShipmentBy() {
+        return shipmentBy;
+    }
+
     public void setShipmentBy(String shipmentBy) {
         this.shipmentBy = shipmentBy;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
     public void setOrderStatus(String orderStatus) {
@@ -99,7 +98,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "OrderResponse{" +
                 "id=" + id +
                 ", orderDate=" + orderDate +
                 ", place='" + place + '\'' +

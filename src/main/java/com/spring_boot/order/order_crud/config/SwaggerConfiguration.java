@@ -1,4 +1,4 @@
-package com.springboot.Order.OrderCrud.config;
+package com.spring_boot.order.order_crud.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

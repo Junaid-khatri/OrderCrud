@@ -1,9 +1,6 @@
-package com.springboot.Order.OrderCrud.Model;
+package com.spring_boot.order.order_crud.model;
 
 import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.Size;
-import org.springframework.dao.DataAccessException;
-
 import java.util.Date;
 
 public class ExpectedDateModel {

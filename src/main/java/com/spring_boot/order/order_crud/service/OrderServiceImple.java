@@ -1,27 +1,33 @@
-package com.springboot.Order.OrderCrud.Service;
+package com.spring_boot.order.order_crud.service;
 
-import com.springboot.Order.OrderCrud.Entity.Order;
-import com.springboot.Order.OrderCrud.Model.ExpectedDateModel;
-import com.springboot.Order.OrderCrud.Model.OrderModel;
-import com.springboot.Order.OrderCrud.Model.OrderStatusModel;
-import com.springboot.Order.OrderCrud.Repository.OrderRepository;
-import com.springboot.Order.OrderCrud.Response.OrderResponse;
+import com.spring_boot.order.order_crud.entity.Order;
+import com.spring_boot.order.order_crud.model.ExpectedDateModel;
+import com.spring_boot.order.order_crud.model.OrderModel;
+import com.spring_boot.order.order_crud.model.OrderStatusModel;
+import com.spring_boot.order.order_crud.repository.OrderRepository;
+import com.spring_boot.order.order_crud.response.OrderResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
 public class OrderServiceImple implements OrderService{
 
+    private static final  String ERROR_MESSAGE = "Some Error Occurred Check Please With CodeBase";
+    private static final String ID_NOT_EXIST_MSG = "Order id %d is not exist";
+    private static final String ID_NOT_EXIST_MSG_LOGGER = "Order id {} is not exist";
     private static Logger logger = LoggerFactory.getLogger(OrderServiceImple.class);
 
+    private final OrderRepository orderRepo;
+
     @Autowired
-    OrderRepository orderRepo;
+    public OrderServiceImple (OrderRepository orderRepo){
+        this.orderRepo = orderRepo;
+    }
 
 
     @Override
@@ -46,7 +52,7 @@ public class OrderServiceImple implements OrderService{
         }catch(Exception e){
             logger.error(e.getMessage());
             e.printStackTrace();
-            return "Some Error Occurred Check Please With CodeBase";
+            return ERROR_MESSAGE;
         }
 
     }
@@ -65,14 +71,15 @@ public class OrderServiceImple implements OrderService{
                 return "Order updated Successfully";
 
             } else {
-                     logger.warn("Order id " + id + " is not exist");
-                return "Order id " + id + " is not exist";
+                     logger.warn(ID_NOT_EXIST_MSG_LOGGER, id);
+
+                     return String.format(ID_NOT_EXIST_MSG, id);
             }
         }
         catch(Exception e){
             logger.error(e.getMessage());
             e.printStackTrace();
-            return "Some Error Occurred Check Please With CodeBase";
+            return ERROR_MESSAGE;
         }
 
     }
@@ -89,14 +96,15 @@ public class OrderServiceImple implements OrderService{
                 return "Order updated Successfully";
 
             } else {
-                     logger.warn("Order id " + id + " is not exist");
-                     return "Order id " + id + " is not exist";
+                     logger.warn(ID_NOT_EXIST_MSG_LOGGER, id);
+
+                     return String.format(ID_NOT_EXIST_MSG, id);
             }
         }
         catch(Exception e){
             logger.error(e.getMessage());
             e.printStackTrace();
-            return "Some Error Occurred Check Please With CodeBase";
+            return ERROR_MESSAGE;
         }
     }
 
@@ -105,18 +113,20 @@ public class OrderServiceImple implements OrderService{
         try {
             if ((validateOrder(id))) {
                 orderRepo.deleteById(id);
-                logger.info("Order id: "+id+" deleted");
+                logger.info("Order id: {} deleted",id);
                 return "Order Deleted Successfully";
 
             } else {
-                logger.warn("Order id " + id + " is not exist");
-                return "Order id " + id + " is not exist";
+                logger.warn(ID_NOT_EXIST_MSG_LOGGER, id);
+
+                return String.format(ID_NOT_EXIST_MSG, id);
+
             }
         }
         catch(Exception e){
             logger.error(e.getMessage());
             e.printStackTrace();
-            return "Some Error Occurred Check Please With CodeBase";
+            return ERROR_MESSAGE;
         }
     }
 
@@ -136,7 +146,8 @@ public class OrderServiceImple implements OrderService{
                 return response;
 
             } else {
-                logger.warn("Order id " + id + " is not exist");
+                logger.warn(ID_NOT_EXIST_MSG_LOGGER, id);
+
                 return null;
             }
         }
