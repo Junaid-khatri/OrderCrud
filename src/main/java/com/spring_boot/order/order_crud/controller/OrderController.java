@@ -51,7 +51,8 @@ public class OrderController {
     }
     @GetMapping(value = "/viewOrder")
     public OrderResponse viewOrder(@RequestParam int id){
-        return orderService.viewOrder(id);
+        OrderResponse response = orderService.viewOrder(id);
+        return response;
     }
     @GetMapping(value = "/viewOrders")
     public List<Order> viewAllOrder(){
