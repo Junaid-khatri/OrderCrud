@@ -1,11 +1,7 @@
 package com.spring_boot.order.order_crud.response;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.util.Date;
 
-@Component
+
 public class OrderResponse {
 
     private int id;
@@ -20,7 +16,6 @@ public class OrderResponse {
     public OrderResponse() {
     }
 
-    @Autowired
     public OrderResponse(int id, Date orderDate, String place, Date expectedDelivery, int totalAmount, String modeOfPayment, String shipmentBy, String orderStatus) {
         this.id = id;
         this.orderDate = orderDate;
